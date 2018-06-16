@@ -1,0 +1,21 @@
+{
+    "name": "flatcurry-typed",
+    "version": "0.0.1",
+    "author": "Kai-Oliver Prott <stu126209@mail.uni-kiel.de>",
+    "synopsis": "A libary for working wih TypedFlatCurry",
+    "category": [ "Metaprogramming" ],
+    "dependencies": {
+        "flatcurry"           : ">= 2.0.0",
+        "flatcurry-annotated" : ">= 2.0.0"
+    },
+    "compilerCompatibility": {
+        "pakcs": ">= 1.14.0",
+        "kics2": ">= 0.5.0"
+    },
+    "exportedModules": [ "FlatCurry.Typed.Conversion", "FlatCurry.Typed.Files",
+                         "FlatCurry.Typed.Goodies", "FlatCurry.Typed.Type" ],
+    "source": {
+        "git": "https://git.ps.informatik.uni-kiel.de/kaiprott/flatcurry-typed.git",
+        "tag": "$version"
+    }
+}
