@@ -349,9 +349,9 @@ letBinds e = case e of
 -- |get body of let declaration
 letBody :: TExpr -> TExpr
 letBody e = case e of
-  TLet _ e -> e
-  _        -> error $ "FlatCurry.Typed.Goodies.letBody: " ++
-                      "no let expression"
+  TLet _ e' -> e'
+  _         -> error $ "FlatCurry.Typed.Goodies.letBody: " ++
+                       "no let expression"
 
 -- |get variable indices from declaration of free variables
 freeVars :: TExpr -> [(VarIndex, TypeExpr)]
@@ -363,9 +363,9 @@ freeVars e = case e of
 -- |get expression from declaration of free variables
 freeExpr :: TExpr -> TExpr
 freeExpr e = case e of
-  TFree _ e -> e
-  _         -> error $ "FlatCurry.Typed.Goodies.freeExpr: " ++
-                       "no declaration of free variables"
+  TFree _ e' -> e'
+  _          -> error $ "FlatCurry.Typed.Goodies.freeExpr: " ++
+                        "no declaration of free variables"
 
 -- |get expressions from or-expression
 orExps :: TExpr -> [TExpr]
@@ -384,9 +384,9 @@ caseType e = case e of
 -- |get scrutinee of case expression
 caseExpr :: TExpr -> TExpr
 caseExpr e = case e of
-  TCase _ e _ -> e
-  _           -> error $ "FlatCurry.Typed.Goodies.caseExpr: " ++
-                         "no case expression"
+  TCase _ e' _ -> e'
+  _            -> error $ "FlatCurry.Typed.Goodies.caseExpr: " ++
+                          "no case expression"
 
 
 -- |get branch expressions from case expression
