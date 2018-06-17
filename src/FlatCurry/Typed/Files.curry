@@ -4,7 +4,7 @@ module FlatCurry.Typed.Files
   , readTypedFlatCurryAsAnnotated, readTypedFlatCurryAsAnnotatedWithParseOptions
   , readTypedFlatCurryFileAsAnnotated) where
 
-import FlatCurry.Typed.Type
+import FlatCurry.Typed.Types
 import FlatCurry.Typed.Conversion
 import FlatCurry.Annotated.Types
 

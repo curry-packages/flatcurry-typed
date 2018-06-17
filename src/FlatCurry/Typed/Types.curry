@@ -1,5 +1,5 @@
-module FlatCurry.Typed.Type
-  ( module FlatCurry.Typed.Type
+module FlatCurry.Typed.Types
+  ( module FlatCurry.Typed.Types
   , module FlatCurry.Types
   ) where
 

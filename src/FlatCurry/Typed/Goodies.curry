@@ -25,7 +25,7 @@ import FlatCurry.Goodies ( Update
                          , isCombTypeConsPartCall
                          )
 
-import FlatCurry.Typed.Type
+import FlatCurry.Typed.Types
 
 -- TProg ----------------------------------------------------------------------
 

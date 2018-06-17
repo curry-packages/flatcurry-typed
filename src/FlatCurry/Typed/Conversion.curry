@@ -1,6 +1,6 @@
 module FlatCurry.Typed.Conversion (toAnnotatedFlatCurry) where
 
-import FlatCurry.Typed.Type
+import FlatCurry.Typed.Types
 import FlatCurry.Typed.Goodies
 import FlatCurry.Annotated.Types
 
