@@ -1,3 +1,16 @@
+------------------------------------------------------------------------------
+--- This library supports meta-programming, i.e., the manipulation of
+--- Curry programs in Curry. This library defines I/O actions
+--- to read Curry programs and transform them into this representation.
+---
+--- This module is based on FlatCurry.Annotated.Files by Michael Hanus
+--- from October 2015
+---
+--- @author Kai-Oliver Prott
+--- @version June 2018
+--- @category meta
+------------------------------------------------------------------------------
+
 module FlatCurry.Typed.Files
   ( readTypedFlatCurry, readTypedFlatCurryWithParseOptions
   , readTypedFlatCurryFile

@@ -1,3 +1,14 @@
+------------------------------------------------------------------------------
+--- This library contains a version of FlatCurry's abstract syntax tree
+--- modified with type information
+---
+--- For more information about the abstract syntax tree of `FlatCurry`,
+--- see the documentation of the respective module.
+---
+--- @author  Kai-Oliver Prott
+--- @version June 2018
+--- @category meta
+------------------------------------------------------------------------------
 module FlatCurry.Typed.Types
   ( module FlatCurry.Typed.Types
   , module FlatCurry.Types

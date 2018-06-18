@@ -1,3 +1,12 @@
+------------------------------------------------------------------------------
+--- This module can convert TypedFlatCurry to AnnotatedFlatCurry
+--- with type annotations.
+---
+--- @author  Kai-Oliver Prott
+--- @version June 2018
+--- @category meta
+------------------------------------------------------------------------------
+
 module FlatCurry.Typed.Conversion (toAnnotatedFlatCurry) where
 
 import FlatCurry.Typed.Types

@@ -1,3 +1,20 @@
+--------------------------------------------------------------------------------
+--- This library provides selector functions, test and update operations
+--- as well as some useful auxiliary functions for TypedFlatCurry data terms.
+--- Most of the provided functions are based on general transformation
+--- functions that replace constructors with user-defined
+--- functions. For recursive datatypes the transformations are defined
+--- inductively over the term structure. This is quite usual for
+--- transformations on TypedFlatCurry terms,
+--- so the provided functions can be used to implement specific transformations
+--- without having to explicitly state the recursion. Essentially, the tedious
+--- part of such transformations - descend in fairly complex term structures -
+--- is abstracted away, which hopefully makes the code more clear and brief.
+---
+--- @author Kai-Oliver Prott
+--- @version October 2015
+--- @category meta
+--------------------------------------------------------------------------------
 module FlatCurry.Typed.Goodies
   ( module FlatCurry.Typed.Goodies
   , module FlatCurry.Goodies

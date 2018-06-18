@@ -1,3 +1,14 @@
+--- --------------------------------------------------------------------------
+--- This library provides pretty-printers for TypedFlatCurry modules
+--- and all substructures (e.g., expressions). Note that types are
+--- ignored for pretty-printing.
+--- The mocule is based on the pretty-printer for AnnotatedFlatCurry by
+--- Bjoern Peemoeller from October 2015
+---
+--- @author  Kai-Oliver Prott
+--- @version June 2018
+--- @category meta
+--- --------------------------------------------------------------------------
 module FlatCurry.Typed.Pretty where
 
 import Text.Pretty
