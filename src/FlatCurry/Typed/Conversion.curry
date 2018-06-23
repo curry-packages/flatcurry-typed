@@ -13,6 +13,8 @@ import FlatCurry.Typed.Types
 import FlatCurry.Typed.Goodies
 import FlatCurry.Annotated.Types
 
+--- Converts a TypedFlatCurry programm into AnnotatedFlatCurry with
+--- type-annotations
 toAnnotatedFlatCurry :: TProg -> AProg TypeExpr
 toAnnotatedFlatCurry = trTProg (\name imps types funcs ops ->
   AProg name imps types (map funcToAnnotated funcs) ops)

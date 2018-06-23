@@ -30,19 +30,25 @@ import Distribution    ( FrontendParams, FrontendTarget (..), defaultParams
 import FileGoodies     (getFileInPath, lookupFileInPath)
 import FilePath        (takeFileName, (</>), (<.>))
 
+--- Read a TypedFlatCurry program and convert it to AnnotatedFlatCurry
 readTypedFlatCurryAsAnnotated :: String -> IO (AProg TypeExpr)
 readTypedFlatCurryAsAnnotated progname =
   readTypedFlatCurry progname >>= (return . toAnnotatedFlatCurry)
 
+--- Read a TypedFlatCurry program
 readTypedFlatCurry :: String -> IO TProg
 readTypedFlatCurry progname =
    readTypedFlatCurryWithParseOptions progname (setQuiet True defaultParams)
 
+--- Read a TypedFlatCurry program with given FrontendParameters to
+--- create the file and convert it to AnnotatedFlatCurry
 readTypedFlatCurryAsAnnotatedWithParseOptions :: String -> FrontendParams -> IO (AProg TypeExpr)
 readTypedFlatCurryAsAnnotatedWithParseOptions progname options =
   readTypedFlatCurryWithParseOptions progname options
     >>= (return . toAnnotatedFlatCurry)
 
+--- Read a TypedFlatCurry program with given FrontendParameters to
+--- create the file
 readTypedFlatCurryWithParseOptions :: String -> FrontendParams -> IO TProg
 readTypedFlatCurryWithParseOptions progname options = do
   mbsrc <- lookupModuleSourceInLoadPath progname
@@ -59,10 +65,13 @@ readTypedFlatCurryWithParseOptions progname options = do
 typedFlatCurryFileName :: String -> String
 typedFlatCurryFileName prog = inCurrySubdir (stripCurrySuffix prog) <.> "tfcy"
 
+--- Read a file containing a TypedFlatCurry representation and convert it
+--- to AnnotatedFlatCurry
 readTypedFlatCurryFileAsAnnotated :: String -> IO (AProg TypeExpr)
 readTypedFlatCurryFileAsAnnotated filename =
   readTypedFlatCurryFile filename >>= (return . toAnnotatedFlatCurry)
 
+--- Read a file containing a TypedFlatCurry representation.
 readTypedFlatCurryFile :: String -> IO TProg
 readTypedFlatCurryFile filename = do
   filecontents <- readTypedFlatCurryFileRaw filename
