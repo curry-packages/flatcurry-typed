@@ -1,13 +1,13 @@
 {
     "name": "flatcurry-typed",
-    "version": "0.0.1",
+    "version": "2.0.0",
     "author": "Kai-Oliver Prott <stu126209@mail.uni-kiel.de>",
     "synopsis": "A libary for working wih TypedFlatCurry",
     "category": [ "Metaprogramming" ],
     "dependencies": {
-        "wl-pprint": ">= 0.0.1",
-        "flatcurry"           : ">= 2.0.0",
-        "flatcurry-annotated" : ">= 2.0.0"
+        "wl-pprint"           : ">= 2.0.0",
+        "flatcurry"           : ">= 3.0.0",
+        "flatcurry-annotated" : ">= 3.0.0"
     },
     "compilerCompatibility": {
         "pakcs": ">= 2.0.0",
