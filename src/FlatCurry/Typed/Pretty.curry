@@ -11,6 +11,8 @@
 --- --------------------------------------------------------------------------
 module FlatCurry.Typed.Pretty where
 
+import Prelude hiding ( empty )
+
 import Text.Pretty
 
 import FlatCurry.Typed.Types
@@ -82,9 +84,9 @@ ppTypeDecls = compose (<$+$>) . map ppTypeDecl
 --- pretty-print a type declaration
 ppTypeDecl :: TypeDecl -> Doc
 ppTypeDecl (Type    qn _ vs cs) = indent $ text "data" <+> ppQName qn
-  <+> hsep (map ppTVarIndex vs) <$$> ppConsDecls cs
+  <+> hsep (map (ppTVarIndex . fst) vs) <$$> ppConsDecls cs
 ppTypeDecl (TypeSyn qn _ vs ty) = indent $ text "type" <+> ppQName qn
-  <+> hsep (map ppTVarIndex vs) </> equals <+> ppTypeExp ty
+  <+> hsep (map (ppTVarIndex . fst) vs) </> equals <+> ppTypeExp ty
 
 --- pretty-print the constructor declarations
 ppConsDecls :: [ConsDecl] -> Doc
