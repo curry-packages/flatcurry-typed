@@ -46,6 +46,9 @@ ppTypeExport (Type    qn vis _ cs)
 ppTypeExport (TypeSyn qn vis _ _ )
   | vis == Private = empty
   | otherwise      = ppPrefixOp qn
+ppTypeExport (TypeNew qn vis _ (NewCons _ vis' _))
+  | vis == Private || vis' == Private = empty
+  | otherwise                         = ppPrefixOp qn <+> text "(..)"
 
 --- pretty-print the export list of constructors
 ppConsExports :: [ConsDecl] -> [Doc]
@@ -87,6 +90,8 @@ ppTypeDecl (Type    qn _ vs cs) = indent $ text "data" <+> ppQName qn
   <+> hsep (map (ppTVarIndex . fst) vs) <$$> ppConsDecls cs
 ppTypeDecl (TypeSyn qn _ vs ty) = indent $ text "type" <+> ppQName qn
   <+> hsep (map (ppTVarIndex . fst) vs) </> equals <+> ppTypeExp ty
+ppTypeDecl (TypeNew qn _ vs c)  = indent $ text "newtype" <+> ppQName qn
+  <+> hsep (empty : map (ppTVarIndex . fst) vs) $$ ppNewConsDecl c
 
 --- pretty-print the constructor declarations
 ppConsDecls :: [ConsDecl] -> Doc
@@ -96,6 +101,10 @@ ppConsDecls cs = vsep $
 --- pretty print a single constructor
 ppConsDecl :: ConsDecl -> Doc
 ppConsDecl (Cons qn _ _ tys) = hsep $ ppPrefixOp qn : map (ppTypeExpr 2) tys
+
+--- pretty print a single newtype constructor
+ppNewConsDecl :: NewConsDecl -> Doc
+ppNewConsDecl (NewCons qn _ ty) = hsep [ppPrefixOp qn, ppTypeExpr 2 ty]
 
 --- pretty a top-level type expression
 ppTypeExp :: TypeExpr -> Doc

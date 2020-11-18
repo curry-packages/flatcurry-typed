@@ -16,7 +16,7 @@ module FlatCurry.Typed.Types
 
 import FlatCurry.Types ( QName, VarIndex, Visibility (..), TVarIndex
                        , TypeDecl (..), OpDecl (..), Fixity (..)
-                       , TypeExpr (..), ConsDecl (..)
+                       , TypeExpr (..), ConsDecl (..), NewConsDecl (..)
                        , Literal (..), CombType (..), CaseType (..)
                        )
 
