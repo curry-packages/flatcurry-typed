@@ -22,10 +22,12 @@ import FlatCurry.Typed.Conversion
 import FlatCurry.Annotated.Types
 
 import System.Directory ( doesFileExist, getFileWithSuffix)
-import Distribution     ( FrontendParams, FrontendTarget (..), defaultParams
-                        , setQuiet, inCurrySubdir, stripCurrySuffix
-                        , callFrontend, callFrontendWithParams
-                        , lookupModuleSourceInLoadPath, getLoadPathForModule
+import System.FrontendExec
+                        ( FrontendParams, FrontendTarget (..), defaultParams
+                        , setQuiet
+                        , callFrontend, callFrontendWithParams)
+import System.CurryPath ( lookupModuleSourceInLoadPath, getLoadPathForModule
+                        , inCurrySubdir, stripCurrySuffix
                         )
 import System.FilePath  ( takeFileName, (</>), (<.>) )
 
