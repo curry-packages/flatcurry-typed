@@ -21,14 +21,15 @@ import FlatCurry.Typed.Types
 import FlatCurry.Typed.Conversion
 import FlatCurry.Annotated.Types
 
-import Directory       (doesFileExist)
-import Distribution    ( FrontendParams, FrontendTarget (..), defaultParams
-                       , setQuiet, inCurrySubdir, stripCurrySuffix
-                       , callFrontend, callFrontendWithParams
-                       , lookupModuleSourceInLoadPath, getLoadPathForModule
-                       )
-import FileGoodies     (getFileInPath, lookupFileInPath)
-import FilePath        (takeFileName, (</>), (<.>))
+import System.Directory ( doesFileExist, getFileWithSuffix)
+import System.FrontendExec
+                        ( FrontendParams, FrontendTarget (..), defaultParams
+                        , setQuiet
+                        , callFrontend, callFrontendWithParams)
+import System.CurryPath ( lookupModuleSourceInLoadPath, getLoadPathForModule
+                        , inCurrySubdir, stripCurrySuffix
+                        )
+import System.FilePath  ( takeFileName, (</>), (<.>) )
 
 --- Read a TypedFlatCurry program and convert it to AnnotatedFlatCurry
 readTypedFlatCurryAsAnnotated :: String -> IO (AProg TypeExpr)
@@ -55,7 +56,7 @@ readTypedFlatCurryWithParseOptions progname options = do
   case mbsrc of
     Nothing -> do -- no source file, try to find FlatCurry file in load path:
       loadpath <- getLoadPathForModule progname
-      filename <- getFileInPath (typedFlatCurryFileName (takeFileName progname)) [""]
+      filename <- getFileWithSuffix (typedFlatCurryFileName (takeFileName progname)) [""]
                                 loadpath
       readTypedFlatCurryFile filename
     Just (dir,_) -> do
