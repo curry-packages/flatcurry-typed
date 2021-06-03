@@ -5,14 +5,10 @@
     "synopsis": "A libary for working wih TypedFlatCurry",
     "category": [ "Metaprogramming" ],
     "dependencies": {
-        "wl-pprint"           : ">= 3.0.0, < 4.0.0",
+        "base"                : ">= 3.0.0, < 4.0.0",
         "flatcurry"           : ">= 3.0.0, < 4.0.0",
         "flatcurry-annotated" : ">= 3.0.0, < 4.0.0",
-        "base"                : ">= 3.0.0, < 4.0.0"
-    },
-    "compilerCompatibility": {
-        "pakcs": ">= 3.0.0, < 4.0.0",
-        "kics2": ">= 3.0.0, < 4.0.0"
+        "wl-pprint"           : ">= 3.0.0, < 4.0.0"
     },
     "exportedModules": [ "FlatCurry.Typed.Conversion", "FlatCurry.Typed.Files",
                          "FlatCurry.Typed.Goodies", "FlatCurry.Typed.Types",
