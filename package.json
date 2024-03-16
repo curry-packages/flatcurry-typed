@@ -14,7 +14,7 @@
                          "FlatCurry.Typed.Goodies", "FlatCurry.Typed.Types",
                          "FlatCurry.Typed.Pretty" ],
     "source": {
-        "git": "https://git.ps.informatik.uni-kiel.de/curry-packages/flatcurry-typed.git",
+        "git": "https://github.com/curry-packages/flatcurry-typed.git",
         "tag": "$version"
     }
 }
